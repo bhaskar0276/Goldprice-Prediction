@@ -1,5 +1,10 @@
 from flask import Flask, request, render_template, jsonify
 from src.pipeline.predection_pipeline import CustomData, PredictPipeline
+import os
+from src.logger import logging
+
+
+logging.info('Data Ingestion methods Starts')
 
 application = Flask(__name__)
 
@@ -38,4 +43,4 @@ def predict_datapoint():
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', debug=True)
+    app.run(host="0.0.0.0", port=6031, debug=True)
